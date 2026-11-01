@@ -22,6 +22,8 @@ Kept here so an upstream sync can be merged by hand (setup review, 2026-11-01):
 3. **Clean fold-in.** New *Folding into the code* section: only on request, the decision is rebuilt as production code; nothing from the prototype is carried over.
 4. **Language.** Labels follow the language of the project's documentation (else the user's).
 5. **Style.** "One accent colour" replaced by: the project's design system, or monochrome with no accent.
+6. **Host app.** A UI screen inside an existing app is built inside a replica of that app, from a screenshot the skill captures itself.
+7. **Served link.** The file is shown through a local static server and handed over as a checked `http://127.0.0.1` link (session-long); the question goes in the chat, not on the page.
 
 ## Usage
 
@@ -30,7 +32,7 @@ Kept here so an upstream sync can be merged by hand (setup review, 2026-11-01):
 /prototype three layouts for the settings page
 ```
 
-Output: one HTML file (path given, opened when possible) with the question stated at the top; later, on request, the validated decision implemented in the project.
+Output: one HTML file, served on a local link that is checked before it is handed over (it lasts the session; the file also opens by double-click); later, on request, the validated decision implemented in the project.
 
 ## Install
 

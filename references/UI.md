@@ -42,7 +42,7 @@ When the screen lives inside an existing app the user runs, the frame is that ap
 
 Default to **3 variants**. More than 5 stops being radically different and starts being noise, so cap there.
 
-Write the plan in one line at the top of the page, e.g. "Three variants of the settings page, to choose the information hierarchy."
+Write the plan in one line in the chat, not in the page, e.g. "Three variants of the settings page, to choose the information hierarchy." The page holds only the screen (or the host-app replica) and the switcher.
 
 ### 2. Generate radically different variants
 
@@ -81,7 +81,7 @@ Keyboard `←` and `→` also cycle, except when an `<input>`, `<textarea>` or `
 
 ### 5. Iterate
 
-Open the file for the user. The interesting feedback is usually **"I want the header from B with the sidebar from C"**: add that as a new variant rather than editing the originals, so the comparison stays honest.
+Give the user the served link (step 5 of the [SKILL](../SKILL.md)). The interesting feedback is usually **"I want the header from B with the sidebar from C"**: add that as a new variant rather than editing the originals, so the comparison stays honest.
 
 ### 6. Verdict and fold-in
 

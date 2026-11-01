@@ -34,7 +34,7 @@ Pick whichever shape best fits the question being asked, *not* whichever is easi
 
 ### 3. Build the shareable HTML file
 
-One file, plain HTML/CSS/JS: no framework, no bundler, no server, everything inline so it opens by double-click and survives being emailed around. Anyone should be able to run it by opening it.
+One file, plain HTML/CSS/JS: no framework, no bundler, no server needed, everything inline so it opens by double-click and survives being emailed around. Anyone should be able to run it by opening it.
 
 Write it for a non-developer. Every label is in **domain language**, not code: buttons and state read like the business, not the reducer. Explain in plain words what's happening.
 
@@ -51,7 +51,7 @@ Keep it restrained: clean typography, generous spacing, the style the SKILL rule
 
 ### 4. Iterate
 
-Open it for the user. The interesting moments are when they say "wait, that shouldn't be possible" or "huh, I assumed X would be different": those are the bugs in the _idea_, which is the whole point. If they want new actions or a new scenario, add them. Prototypes evolve.
+Give the user the served link (step 5 of the [SKILL](../SKILL.md)). The interesting moments are when they say "wait, that shouldn't be possible" or "huh, I assumed X would be different": those are the bugs in the _idea_, which is the whole point. If they want new actions or a new scenario, add them. Prototypes evolve.
 
 ### 5. Verdict and fold-in
 
