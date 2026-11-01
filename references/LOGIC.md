@@ -47,15 +47,15 @@ Lay it out with a clean hierarchy, top to bottom:
 
 Choose scenarios that demonstrate the awkward cases, the ones hard to reason about on paper: the happy path, a tricky edge case, an attempt at something that should be illegal.
 
-Keep it beautiful but restrained: clean typography, generous spacing, one accent colour. No animations, no gimmicks: nothing that competes with the state and the buttons.
+Keep it restrained: clean typography, generous spacing, the style the SKILL rules set (the project's design system, or monochrome with no accent color). No animations, no gimmicks: nothing that competes with the state and the buttons.
 
-### 4. Hand it over
+### 4. Iterate
 
-Send them the file, or open it for them. They'll click through the walkthroughs and free-play whenever they get to it; the interesting moments are when they say "wait, that shouldn't be possible" or "huh, I assumed X would be different"; those are the bugs in the _idea_, which is the whole point. If they want new actions or a new scenario, add them. Prototypes evolve.
+Open it for the user. The interesting moments are when they say "wait, that shouldn't be possible" or "huh, I assumed X would be different": those are the bugs in the _idea_, which is the whole point. If they want new actions or a new scenario, add them. Prototypes evolve.
 
-### 5. Capture the answer and the prototype
+### 5. Verdict and fold-in
 
-Once the prototype has answered its question, capture the answer, then capture the prototype the way the [SKILL](../SKILL.md) describes. The logic-specific mapping: the validated reducer / machine / function set lifts into the real module (the decision, absorbed); the HTML shell rides along to the throwaway branch that keeps the prototype as a primary source, and being one self-contained file, it stays trivially re-runnable there.
+Once the prototype has answered its question, state the verdict. If the user asks to fold it in, follow *Folding into the code* in the [SKILL](../SKILL.md): the validated reducer / machine / function set is rewritten in the project's idiom; the HTML shell stays out of the project.
 
 ## Anti-patterns
 
@@ -63,5 +63,5 @@ Once the prototype has answered its question, capture the answer, then capture t
 - **Don't wire it to the real database.** Use in-memory state unless the question is specifically about persistence.
 - **Don't generalise.** No "what if we wanted to support X later." The prototype answers one question.
 - **Don't blur the logic and the page together.** If the pure module references the DOM, `document`, or button handlers, it's no longer liftable. Keep the page as a thin shell over a pure module.
-- **Don't reach for a framework, bundler, or server.** One file the recipient double-clicks; a React app or a dev server defeats "shareable".
+- **Don't reach for a framework, bundler, or server.** One file the user double-clicks; a React app or a dev server defeats the point.
 - **Don't ship the HTML shell into production.** The page is optimised for being clicked through by hand. The logic module behind it is the bit worth keeping.
