@@ -38,9 +38,9 @@ When the screen lives inside an existing app the user runs, the frame is that ap
 
 ### 1. Pick N and agree the plan
 
-Default to **3 variants**. More than 5 stops being radically different and starts being noise, so cap there.
+Default to **5 variants**, unless the user asks for another number. Each one must still disagree with the others about structure; if two come out alike, replace one rather than ship a near-copy.
 
-The plan goes in the chat before building (step 3 of the [SKILL](../SKILL.md)), e.g. "Three variants of the projects panel: grouped list, status board, next steps first. The sidebar, tabs and session cards work; sending a message stays inert." The page holds only the replica, the feature and the switcher.
+The plan goes in the chat before building (step 3 of the [SKILL](../SKILL.md)), e.g. "Five variants of the projects panel: grouped list, status board, next steps first, compact table, timeline. The sidebar, tabs and session cards work; sending a message stays inert." The page holds only the replica, the feature and the switcher.
 
 ### 2. Generate radically different variants
 
@@ -54,11 +54,11 @@ Variants must be **structurally different**: different layout, different informa
 
 ### 3. Wire them together
 
-One variant visible at a time, chosen by the URL hash (`#A`, `#B`, `#C`) so a reload or a shared link keeps the choice:
+One variant visible at a time, chosen by the URL hash (`#A` to `#E`) so a reload or a shared link keeps the choice:
 
 ```js
-const variants = ['A', 'B', 'C'];
-const names = { A: 'Card grid', B: 'Sidebar layout', C: 'Single column' };
+const variants = ['A', 'B', 'C', 'D', 'E'];
+const names = { A: 'Card grid', B: 'Sidebar layout', C: 'Single column', D: 'Table', E: 'Timeline' };
 const show = () => {
   const v = variants.includes(location.hash.slice(1)) ? location.hash.slice(1) : variants[0];
   document.querySelectorAll('[data-variant]').forEach(el => { el.hidden = el.dataset.variant !== v; });
