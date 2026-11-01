@@ -24,7 +24,12 @@ A variant is much easier to judge when it sits inside the rest of the app: real 
 
 When the screen lives inside an existing app the user runs, the frame is that app, as the user sees it. It is a replica, not a simplification.
 
-- **Source.** Take a screenshot of the user's own window. If you cannot capture it, ask the user for one before you build. Never invent the frame.
+- **Source.** Capture the user's own window yourself, in this order, and stop at the first that works:
+  1. **Shell.** On macOS run `screencapture -x <temp folder>/host.png` (whole screen, no sound) and read the image. It also captures the app the agent runs in, such as the Claude desktop app, which screen-control tools leave out. On other systems use the platform's own command-line capture. It needs screen-recording permission for the app that runs the shell; if the image is blank or the command fails, go to the next step.
+  2. **Screen-control or browser tool**, when the host is another app or a web page.
+  3. **Ask the user** for a screenshot, only when both fail.
+  If the host window is not on screen when you capture, ask the user to bring it forward and capture again. Never invent the frame.
+- **Plugins and mods.** When the new piece extends the agent's own app (a plugin, mod, pane, panel or slash command of the agent's harness), the host app is that app as the user runs it: desktop app, terminal or IDE. If the capture shows a pane or panel already open, the new piece takes the same place: side, width, header and its buttons. The command or button that opens it works in the page.
 - **Look.** Copy the screenshot: theme, layout and proportions, every region of the window, icons, controls, typography, borders, radii and spacing. The new piece uses the host app's own look, not the project's or a default style.
 - **Behaviour.** The host app's interactions that reach the new piece work in the page: the way the user opens it, closes it, resizes it or moves around it. The other controls of the host app are present and inert.
 - **Every function.** Each function the new piece will have works in the page, with persistence simulated: confirmations, the effect on the data, the feedback the host app gives and a view of the changed data.
