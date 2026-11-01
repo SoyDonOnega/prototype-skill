@@ -4,7 +4,7 @@ Agent skill `/prototype`: build a throwaway prototype of a new feature, in sever
 
 ## What it does
 
-Turns a new feature into one self-contained HTML file: several structurally different versions of the feature, each inside a working replica of the app it will live in (captured from your screen), switched with `#A`/`#B`/`#C` and a floating bottom bar. The app's existing functions keep working in the replica, and the feature works with them.
+Turns a new feature into one self-contained HTML file: several structurally different versions of the feature, each inside a working replica of the app it will live in (captured from your screen), five by default, switched with `#A`…`#E` and a floating bottom bar. The app's existing functions keep working in the replica, and the feature works with them.
 
 While prototyping it only reads the project: no writes, no git. Before building it proposes the versions and what will work, and waits for your OK. When you have chosen, and only if you ask, it implements the chosen version in the real code as ordinary production code, with nothing from the prototype (shell, switcher, flags, sample data).
 
@@ -27,10 +27,10 @@ Kept here so an upstream sync can be merged by hand (setup review, 2026-11-01):
 
 ```text
 /prototype a side panel in the desktop app that lists the projects in Developer/Projects.md
-/prototype three layouts for the settings page
+/prototype a new layout for the settings page
 ```
 
-Output: one HTML file, served on a local link that is checked before it is handed over (it lasts the session; the file also opens by double-click); later, on request, the chosen version implemented in the project.
+Output: one HTML file, served on a local link that is checked before it is handed over (it lasts the session); later, on request, the chosen version implemented in the project.
 
 ## Install
 

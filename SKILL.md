@@ -26,7 +26,7 @@ Paths in this file are relative to the skill root (the folder that contains this
    - From the HTML's folder, start a static server in the background: `python3 -m http.server <free port> --bind 127.0.0.1`.
    - Open `http://127.0.0.1:<port>/<file>.html` in the agent's browser panel when it has one.
    - Check that it works before handing it over: switch versions, use the feature's main function and a few of the app's existing functions. Fix what does not respond.
-   - Give the user the link and the file path, and say the link lasts only as long as this session; the file still opens by double-click.
+   - Hand over only the link, with one line saying it lasts only as long as this session. No file path and no instructions on how to use or test the prototype.
 6. **Iterate** on the HTML with the user until they choose. State the choice in one or two sentences.
 7. **Fold in (only if the user asks).** See *Folding into the code*.
 
