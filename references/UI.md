@@ -1,12 +1,10 @@
-# UI Prototype
+# Prototype process
 
-Generate **several radically different UI variations** of one screen in a single self-contained HTML file, switchable from a floating bottom bar. The user flips between variants in the browser, picks one (or steals bits from each), then throws the file away.
-
-If the question is about logic/state rather than what something looks like, this is the wrong branch. Use [LOGIC.md](LOGIC.md).
+Generate **several radically different versions** of one new feature in a single self-contained HTML file, each inside a working replica of the app, switchable from a floating bottom bar. The user flips between versions in the browser, uses the app around them as usual, picks one (or steals bits from each), then throws the file away.
 
 ## When this is the right shape
 
-- "What should this page look like?"
+- "Add a projects panel to the app: show me a few options."
 - "I want to see a few options for this dashboard before committing."
 - "Try a different layout for the settings screen."
 - Any time the user would otherwise spend a day picking between three vague mockups in their head.
@@ -31,18 +29,18 @@ When the screen lives inside an existing app the user runs, the frame is that ap
   If the host window is not on screen when you capture, ask the user to bring it forward and capture again. Never invent the frame.
 - **Plugins and mods.** When the new piece extends the agent's own app (a plugin, mod, pane, panel or slash command of the agent's harness), the host app is that app as the user runs it: desktop app, terminal or IDE. If the capture shows a pane or panel already open, the new piece takes the same place: side, width, header and its buttons. The command or button that opens it works in the page.
 - **Look.** Copy the screenshot: theme, layout and proportions, every region of the window, icons, controls, typography, borders, radii and spacing. The new piece uses the host app's own look, not the project's or a default style.
-- **Behaviour.** The host app's interactions that reach the new piece work in the page: the way the user opens it, closes it, resizes it or moves around it. The other controls of the host app are present and inert.
-- **Every function.** Each function the new piece will have works in the page, with persistence simulated: confirmations, the effect on the data, the feedback the host app gives and a view of the changed data.
+- **The app keeps working.** The existing functions visible in the capture, and those the user would use around the new piece, work in the page with sample data and simulated effects: navigation, tabs, lists, opening and closing panels and panes, toggles, the buttons on screen and what they change. Keep inert only what a page cannot simulate with sense (sending a message to a model, paying, calling an outside service), and name those in the chat (step 3 of the [SKILL](../SKILL.md)).
+- **The feature works with the app.** Each function the new piece will have works in the page, with persistence simulated: confirmations, the effect on the data, the feedback the host app gives and a view of the changed data. The way the user opens it, closes it, resizes it or moves around it works. Where the app's state matters to the feature, the feature follows it: change the selection, the session or the tab in the replica and the feature responds.
 - **Size.** Build at the size of the screenshot and scale the whole page to fit the preview, so text stays as legible as in the real app.
-- **Variants.** Variants change only the new piece. The frame is identical in every variant.
+- **Variants.** Variants change only the new piece. The replica, and what works in it, is identical in every variant.
 
 ## Process
 
-### 1. State the question and pick N
+### 1. Pick N and agree the plan
 
 Default to **3 variants**. More than 5 stops being radically different and starts being noise, so cap there.
 
-Write the plan in one line in the chat, not in the page, e.g. "Three variants of the settings page, to choose the information hierarchy." The page holds only the screen (or the host-app replica) and the switcher.
+The plan goes in the chat before building (step 3 of the [SKILL](../SKILL.md)), e.g. "Three variants of the projects panel: grouped list, status board, next steps first. The sidebar, tabs and session cards work; sending a message stays inert." The page holds only the replica, the feature and the switcher.
 
 ### 2. Generate radically different variants
 
@@ -92,5 +90,6 @@ State which variant won and why. If the user asks to fold it in, follow *Folding
 - **Variants that differ only in colour or copy.** That's a tweak, not a prototype. Real variants disagree about structure.
 - **Sharing too much code between variants.** A shared header is fine; a shared layout defeats the point. Each variant should be free to throw out the layout.
 - **A context-free page.** A lone component on a blank page hides the problems the real screen would expose.
-- **Real mutations or network calls.** Buttons may change in-page state; the question is "what should this look like", not "does the backend work".
+- **A dead replica.** An app that only looks right, where nothing but the new piece responds, hides how the feature lives with what the app already does.
+- **Real mutations or network calls.** Buttons may change in-page state; the prototype shows how the feature looks and works in the app, not whether the backend works.
 - **Porting the prototype markup to production.** It was written under prototype constraints. Rebuild the winner properly when you fold it in.
