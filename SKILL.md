@@ -23,7 +23,7 @@ Paths in this file are relative to the skill root (the folder that contains this
    - **"Does this logic / state model feel right?"** → read `references/LOGIC.md`. One HTML file with free-play buttons and guided walkthroughs that push the state model through the cases that are hard to reason about on paper.
    - **"What should this look like?"** → read `references/UI.md`. One HTML file with several radically different variations of the screen, switchable from a floating bar.
    If the question is genuinely ambiguous and the user is not reachable, default to the branch that better matches the surrounding code (a backend module → logic; a page or component → UI) and state the assumption at the top of the prototype.
-3. **Read the project, do not change it.** Take what the prototype needs to feel real: names, data shapes, sample data, design tokens, documentation language.
+3. **Read the project, do not change it.** Take what the prototype needs to feel real: names, data shapes, sample data, design tokens, documentation language. When the screen lives inside an existing app (the host app), read that app too: see *Host app* in `references/UI.md`.
 4. **Build the HTML** following the branch's process and the rules below. Save it where the user asks; otherwise in the system temp folder. Give the path and open it if you can.
 5. **Iterate** on the HTML with the user until the question has an answer. State the verdict in one or two sentences.
 6. **Fold in (only if the user asks).** See *Folding into the code*.
@@ -33,7 +33,7 @@ Paths in this file are relative to the skill root (the folder that contains this
 1. **One file, nothing to install.** Plain HTML, CSS and JS inline: no framework, bundler or server. It opens by double-click.
 2. **Never write into the project while prototyping,** and run no git command (no branch, commit, push or issue). The HTML lives outside the repository unless the user puts it there.
 3. **Language:** every label and explanation in the language of the project's documentation (README, docs); if the project has none, the user's language.
-4. **Style:** follow the project's design system (colors, fonts, spacing) when it has one. Otherwise monochrome: near-black ink on off-white, gray for secondary text, thin gray lines, highlight by inversion, no accent color.
+4. **Style:** in a host app, the host app's own look, for the frame and for the new piece alike. Otherwise follow the project's design system (colors, fonts, spacing) when it has one. Otherwise monochrome: near-black ink on off-white, gray for secondary text, thin gray lines, highlight by inversion, no accent color.
 5. **No persistence.** State lives in memory. If the question is about persistence itself, simulate it in the page.
 6. **Skip the polish.** No tests, no error handling beyond what keeps the page usable, no abstractions.
 7. **Surface the state.** After every action (logic) or on every variant switch (UI), render the full relevant state so the user sees what changed.
