@@ -15,10 +15,21 @@ If the question is about logic/state rather than what something looks like, this
 
 A variant is much easier to judge when it sits inside the rest of the app: real header, real sidebar, real data, real density. An empty page is a vacuum: every variant looks fine. So, reading the project only:
 
-- **Context.** Reproduce, in plain HTML, the frame the screen lives in: the app's header, navigation and neighbouring content, simplified but at the real size and density. When the screen does not exist yet, reproduce the page it would naturally live inside.
+- **Context.** Reproduce, in plain HTML, the frame the screen lives in: the app's header, navigation and neighbouring content, at the real size and density. When the screen does not exist yet, reproduce the page it would naturally live inside. When that frame is an existing app the user runs, follow *Host app* below.
 - **Data.** Use data shaped like the real thing: field names, lengths, counts and edge cases taken from the project's types, fixtures, seeds or docs. Long names, empty states and the busiest realistic case belong in it.
 - **Style.** Copy the project's design tokens (colors, fonts, spacing, radii) into CSS custom properties; reuse the look of its components without importing them.
 - Never fetch from the project's APIs or write to it. Everything is inline.
+
+## Host app
+
+When the screen lives inside an existing app the user runs, the frame is that app, as the user sees it. It is a replica, not a simplification.
+
+- **Source.** Take a screenshot of the user's own window. If you cannot capture it, ask the user for one before you build. Never invent the frame.
+- **Look.** Copy the screenshot: theme, layout and proportions, every region of the window, icons, controls, typography, borders, radii and spacing. The new piece uses the host app's own look, not the project's or a default style.
+- **Behaviour.** The host app's interactions that reach the new piece work in the page: the way the user opens it, closes it, resizes it or moves around it. The other controls of the host app are present and inert.
+- **Every function.** Each function the new piece will have works in the page, with persistence simulated: confirmations, the effect on the data, the feedback the host app gives and a view of the changed data.
+- **Size.** Build at the size of the screenshot and scale the whole page to fit the preview, so text stays as legible as in the real app.
+- **Variants.** Variants change only the new piece. The frame is identical in every variant.
 
 ## Process
 
